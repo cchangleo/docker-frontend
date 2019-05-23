@@ -1,0 +1,22 @@
+version: '3'
+services:
+  frontend:
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    networks:
+      - traefik
+    labels:
+      - "traefik.docker.nedoctwork=traefik"
+      - "traefik.enable=true"
+      - "traefil.backend=nginx"
+      - "traefik.basic.frontend.rule=Host:some-nginx.localhost"
+      - "traefik.port=3000"
+
+    volumes:  
+      - /app/node_modules
+      - ./:/app
+
+networks:
+  traefik:
+    external: true

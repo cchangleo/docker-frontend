@@ -1,0 +1,14 @@
+.mdl-card{
+  margin-bottom: 20px;
+}
+
+.mdl-card-width-lg{
+  width: 70%;
+}
+
+.mdl-card textarea{
+  width: 97%;
+  margin: 0 auto 10px;
+  display: block;
+  border-color: #ececec;
+}

@@ -1,0 +1,43 @@
+image: node
+
+stages:
+  - build
+  - test
+  - deploy
+
+before_script:
+   - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+
+   - eval $(ssh-agent -s)
+
+   - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
+
+   - mkdir -p ~/.ssh
+   - chmod 700 ~/.ssh
+
+   - ssh-keyscan 75.98.32.151 >> ~/.ssh/known_hosts
+   - chmod 644 ~/.ssh/known_hosts
+
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run-script build
+  artifacts:
+    paths:
+      - dist/*
+
+test:
+  stage: build
+  script:
+     - npm install
+     - npm run test
+
+deploy:
+  stage: deploy
+  script:
+   - ssh -o StrictHostKeyChecking=no -p 309 root@$CI_SSH_SERVER uptime
+   - scp -P309 -vvv -r ./dist/* root@$CI_SSH_SERVER:/usr/share/nginx/html/ts/
+
+

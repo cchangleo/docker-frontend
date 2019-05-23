@@ -1,0 +1,59 @@
+{
+  "name": "data-services-js-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "dependencies": {
+    "@types/bootstrap": "^4.3.0",
+    "@types/react": "^16.8.15",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-router-dom": "^4.3.3",
+    "@types/reactstrap": "^8.0.1",
+    "bootstrap": "^4.3.1",
+    "lodash": "^4.17.11",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "^3.0.0",
+    "reactstrap": "^8.0.0",
+    "redux": "^4.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "@types/enzyme": "^3.9.1",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.12",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^2.1.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "jest": "^24.8.0",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^0.23.1",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.5",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "rimraf ./dist && npm install && webpack --config webpack.config.js",
+    "server": "node_modules/.bin/webpack-dev-server --content-base dist",
+    "dev": "webpack-dev-server --config webpack.config.js --verbose --inline --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/infocast/data-services-js-frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/infocast/data-services-js-frontend/issues"
+  },
+  "homepage": "https://gitlab.com/infocast/data-services-js-frontend#readme"
+}
